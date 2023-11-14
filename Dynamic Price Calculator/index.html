@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>PC Parts Price Calculator</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+    body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 20px;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin: 10px 0;
+    font-size: 18px;
+    color: #555;
+}
+
+select {
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    width: 200px;
+    margin-top: 5px;
+}
+
+img {
+    width: 200px; /* Set the desired width */
+    height: 150px; /* Set the desired height */
+    margin-top: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+p {
+    font-size: 18px;
+    margin-top: 20px;
+    color: #333;
+}
+
+#totalPrice {
+    font-weight: bold;
+    color: #4CAF50;
+    font-size: 24px;
+}
+
+#processorImage,
+#memoryImage,
+#storageImage {
+    transition: transform 0.3s ease-in-out;
+}
+
+#processorImage:hover,
+#memoryImage:hover,
+#storageImage:hover {
+    transform: scale(1.1);
+}
+
+    </style>
+</head>
+
+<body>
+
+    <h2>PC Parts Price Calculator</h2>
+    
+    <div class="dropdown-container">
+        <div class="dropdown-wrapper">
+            <label for="processor">Select Processor:</label>
+            <select id="processor" >
+                <option value="0" >None</option>
+                <option value="200" >Intel i5 (+$200)</option>
+                <option value="300">AMD Ryzen 7 (+$300)</option>
+                <option value="500">Intel i7 (+$500)</option>
+            </select>
+        </div>
+        <img id="processorImage" class="component-image" src="">
+    </div>
+    
+    <div class="dropdown-container">
+        <div class="dropdown-wrapper">
+            <label for="memory">Select Memory:</label>
+            <select id="memory">
+                <option value="0">None</option>
+                <option value="80">8GB RAM (+$80)</option>
+                <option value="150">16GB RAM (+$150)</option>
+                <option value="300">32GB RAM (+$300)</option>
+            </select>
+        </div>
+        <img id="memoryImage" class="component-image" src="" alt="">
+    </div>
+    
+    <div class="dropdown-container">
+        <div class="dropdown-wrapper">
+            <label for="storage">Select Storage:</label>
+            <select id="storage">
+                <option value="0">None</option>
+                <option value="100">256GB SSD (+$100)</option>
+                <option value="150">512GB SSD (+$150)</option>
+                <option value="200">1TB HDD (+$200)</option>
+            </select>
+        </div>
+        <img id="storageImage" class="component-image" src="" alt="">
+    </div>
+    
+    <p>Total Price: $<span id="totalPrice">0</span></p>
+    
+    <script>
+        $(document).ready(function () {
+            // Image URLs for processors
+            const processorImages = {
+                0: "",
+                200: "45bb9385-2ed5-4fc3-a751-c995a7d96315.jpg",
+                300: "download.jfif",
+                500: "Intel-Core-i7-10700K-3.8Ghz-Up-To-5.0Ghz-Cache-16MB-Box-Socket-LGA-1200-Comet-Lake-Series.jpg"
+            };
+    
+            // Image URLs for memory
+            const memoryImages = {
+                0: "",
+                80: "41RI7C6Xi5S._AC_.jpg",
+                150: "00_addGame_SpiderX4-860x570.png",
+                300: "ebd5781b-bbf1-4b4b-9f4b-d0f6e9e8d86e.jpg"
+            };
+    
+            // Image URLs for storage
+            const storageImages = {
+                0: "",
+                100: "TRANSCEND-M2-NVME-SSD-110s-256-GB.jpg",
+                150: "512.png",
+                200: "1tb.jfif"
+            };
+    
+            // Event listeners for component changes
+            $("#processor, #memory, #storage").on("change", function () {
+                updateTotalPrice();
+                updateImages();
+            });
+    
+            // Function to update the total price based on selected components
+            function updateTotalPrice() {
+                const selectedProcessor = parseInt($("#processor").val());
+                const selectedMemory = parseInt($("#memory").val());
+                const selectedStorage = parseInt($("#storage").val());
+    
+                // Calculate total price
+                const total = selectedProcessor + selectedMemory + selectedStorage;
+    
+                // Update the total price display
+                $("#totalPrice").text(total);
+            }
+    
+            // Function to update the images based on selected components
+            function updateImages() {
+                const selectedProcessor = parseInt($("#processor").val());
+                const selectedMemory = parseInt($("#memory").val());
+                const selectedStorage = parseInt($("#storage").val());
+    
+                // Update processor image
+                $("#processorImage").attr("src", processorImages[selectedProcessor]);
+    
+                // Update memory image
+                $("#memoryImage").attr("src", memoryImages[selectedMemory]);
+    
+                // Update storage image
+                $("#storageImage").attr("src", storageImages[selectedStorage]);
+    
+                // Hide images if none is selected
+                $(".component-image").each(function () {
+                    if ($(this).attr("src") === "") {
+                        $(this).hide();
+                    } else {
+                        $(this).show();
+                    }
+                });
+            }
+        });
+    </script>
+    
+    </body>
+    
+    </html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hololive Members Introduction</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    background-color: #ffe6ff; /* Light Pink */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.tabs-container {
+    display: flex;
+    justify-content: center;
+    background-color: #ffb3d9; /* Pink */
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.tab {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ff80bf; /* Darker Pink */
+    background-color: #ff99cc; /* Lighter Pink */
+    display: inline-block;
+    margin-right: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.tab:hover {
+    background-color: #ff66b2; /* Highlight Pink */
+    transform: translateY(-2px);
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+    border: 1px solid #ff80bf; /* Darker Pink */
+    background-color: #fff;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.active-tab {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+    </style>
+</head>
+<body>
+
+<div>
+    <div class="tab" data-tab="aqua">Minato Aqua</div>
+    <div class="tab" data-tab="ayame">Nakiri Ayame</div>
+    <div class="tab" data-tab="darkness">Laplus Darkness</div>
+</div>
+
+<div class="tab-content" data-content="aqua">
+    <p>Minato Aqua - A bubbly and energetic Hololive VTuber. She loves playing games and interacting with her fans.</p>
+</div>
+
+<div class="tab-content" data-content="ayame">
+    <p>Nakiri Ayame - A charismatic Hololive member who enjoys singing and playing a variety of games. Known for her lively personality.</p>
+</div>
+
+<div class="tab-content" data-content="darkness">
+    <p>Laplus Darkness - A mysterious and entertaining Hololive personality with a flair for role-playing and storytelling during her streams.</p>
+</div>
+
+<script>
+    $(document).ready(function () {
+        // Set the default tab
+        showTab("aqua");
+
+        // Tab click event
+        $(".tab").click(function () {
+            var tabId = $(this).data("tab");
+            showTab(tabId);
+        });
+
+        function showTab(tabId) {
+            // Hide all tabs and content
+            $(".tab-content").removeClass("active-tab");
+            $(".tab-content").hide();
+
+            // Show the selected tab and content
+            $("[data-content=" + tabId + "]").addClass("active-tab");
+            $("[data-content=" + tabId + "]").show();
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          background-color: #f8f8f8;
+          margin: 0;
+          padding: 0;
+        }
+      
+        .gallery {
+          margin: 10px;
+          border: 2px solid #ddd;
+          float: left;
+          width: 200px;
+          transition: transform 0.3s ease-in-out;
+          border-radius: 8px;
+          overflow: hidden;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          background-color: #fff;
+        }
+      
+        .gallery:hover {
+          border: 2px solid #4CAF50;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+          transform: scale(1.05);
+        }
+      
+        .gallery img {
+          width: 100%;
+          height: auto;
+          border-radius: 8px 8px 0 0;
+        }
+      
+        .desc {
+          padding: 15px;
+          text-align: center;
+          background-color: #f2f2f2;
+          border-radius: 0 0 8px 8px;
+        }
+      
+        a {
+          text-decoration: none;
+          color: #333;
+        }
+      
+        a:hover {
+          color: #4CAF50;
+        }
+
+        #filters {
+            margin: 20px 0;
+        }
+
+        #filters button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #filters button:hover {
+            background-color: #45a049;
+        }
+      </style>
+       <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <div id="filters">
+        <button data-filter="all">All</button>
+        <button data-filter="hatsune-miku">Hatsune Miku</button>
+        <button data-filter="gaur-gura">Gaur Gura</button>
+        <button data-filter="tokisaki-kurumi">Tokisaki Kurumi</button>
+    </div>
+    <div id="imageGallery">
+        <div class="gallery hatsune-miku">
+            <a target="_blank" href="FiFcW4cUcAESToP.jfif">
+                <img src="FiFcW4cUcAESToP.jfif" alt="HatsuneMikuVampire" width="600" height="400">
+            </a>
+            <div class="desc">A captivating image of Hatsune Miku as a vampire.</div>
+        </div>
+    
+        <div class="gallery gaur-gura">
+            <a target="_blank" href="gawr_gura_by_satchely_de5389r-fullview.jpg">
+                <img src="gawr_gura_by_satchely_de5389r-fullview.jpg" alt="GaurGura" width="600" height="400">
+            </a>
+            <div class="desc">Gaur Gura, a virtual YouTuber, in a charming illustration.</div>
+        </div>
+    
+        <div class="gallery hatsune-miku">
+            <a target="_blank" href="hatusne miku.jfif">
+                <img src="hatusne miku.jfif" alt="RegularHatsuneMiku" width="600" height="400">
+            </a>
+            <div class="desc">Classic depiction of Hatsune Miku in her regular attire.</div>
+        </div>
+    
+        <div class="gallery tokisaki-kurumi">
+            <a target="_blank" href="wp1829975.png">
+                <img src="wp1829975.png" alt="TokisakiKurumi" width="600" height="400">
+            </a>
+            <div class="desc">Tokisaki Kurumi from Date A Live, portrayed in a stunning artwork.</div>
+        </div>
+    </div>
+    
+    
+    <script>
+        $(document).ready(function () {
+            // Filter images based on button click
+            $("#filters button").click(function () {
+                var filterValue = $(this).data("filter");
+    
+                // Show all images if the "All" button is clicked
+                if (filterValue === "all") {
+                    $("#imageGallery .gallery").show();
+                } else {
+                    // Otherwise, hide all images and show only those with the selected filter
+                    $("#imageGallery .gallery").hide();
+                    $("#imageGallery .gallery." + filterValue).show();
+                }
+            });
+        });
+    </script>
+    
+
+</body>
+</html>
+
+

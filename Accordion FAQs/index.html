@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programming FAQs</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+#titlea{
+    text-align: center;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f8f8f8;
+    color: #333;
+}
+
+#accordion {
+    width: 70%;
+    margin: 50px auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h3 {
+    background-color: #3498db;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    margin: 0;
+    font-size: 1.2em;
+    border-bottom: 1px solid #2980b9;
+}
+
+div {
+    padding: 15px;
+    background-color: #ecf0f1;
+    border-bottom: 1px solid #bdc3c7;
+}
+
+/* Style for the active accordion item */
+.ui-accordion-header-active {
+    background-color: #2980b9;
+}
+
+/* Hover effect for better user interaction */
+h3:hover {
+    background-color: #2581c6;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+    #accordion {
+        width: 90%;
+    }
+}
+
+    </style>
+</head>
+<body>
+<h1 id="titlea">Programming FAQ</h1>
+<div id="accordion">
+    <h3>How do I declare a variable in JavaScript?</h3>
+    <div>
+        <p>In JavaScript, you can declare a variable using the `var`, `let`, or `const` keyword. For example:<br>
+        <code>var myVariable = 42;</code></p>
+    </div>
+    <h3>What is the difference between == and === in JavaScript?</h3>
+    <div>
+        <p>The `==` operator in JavaScript performs type coercion, meaning it converts the operands to the same type before making the comparison. On the other hand, `===` (strict equality) compares both value and type without coercion.</p>
+    </div>
+    <h3>How do I create a function in Python?</h3>
+    <div>
+        <p>In Python, you can create a function using the `def` keyword. Here's an example:<br>
+        <code>def my_function(parameter):<br>&nbsp;&nbsp;&nbsp;&nbsp;# function code here</code></p>
+    </div>
+    <!-- Add more programming-related questions and answers as needed -->
+</div>
+
+<script>
+    $(document).ready(function(){
+        $("#accordion").accordion({
+            collapsible: true,
+            active: false
+        });
+    });
+</script>
+
+</body>
+</html>

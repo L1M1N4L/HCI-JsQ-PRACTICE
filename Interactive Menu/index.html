@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Menu</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <style>
+    body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(to right, #ffecd2, #fcb69f);
+
+}
+
+.menu-item {
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s;
+}
+
+.menu-item:hover {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.dish {
+  cursor: pointer;
+  padding: 15px;
+}
+
+.dish:hover {
+  background-color: #f0f0f0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 15px;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.dish:hover img {
+  transform: scale(1.1);
+}
+
+.dish h2 {
+  color: #e44d26;
+  margin-bottom: 10px;
+}
+
+.dish p {
+  margin: 0;
+  color: #555;
+}
+
+.dish-details {
+  display: none;
+  padding: 15px;
+}
+
+.dish-details p {
+  margin-bottom: 15px;
+}
+
+@media (max-width: 600px) {
+  .menu-item {
+    width: 90%;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+<div class="menu-item" id="item1">
+  <div class="dish">
+    <h2>Adeptus' Temptation</h2>
+    <img src="at.jfif" alt="Adeptus' Temptation Image" class="imgmeow">
+    <p>5 Stars</p>
+  </div>
+  <div class="dish-details">
+    <p>Description: Increases all party members' ATK by 260~372 and CRIT Rate by 8~12% for 300s.</p>
+    <p>Availability: Yes</p>
+  </div>
+</div>
+
+<div class="menu-item" id="item2">
+    <div class="dish">
+      <h2>Biryani</h2>
+      <img src="Item_Biryani.webp" alt="Biryani" class="imgmeow">
+      <p>4 Stars</p>
+    </div>
+    <div class="dish-details">
+      <p>Description: Increases all party members' DEF by 215~308 and healing effects by 6~10% for 300s.</p>
+      <p>Availability: Yes</p>
+    </div>
+  </div>
+
+  <div class="menu-item" id="item3">
+    <div class="dish">
+      <h2>Bountiful Year</h2>
+      <img src="by.jfif" alt="Bountiful Year" class="imgmeow">
+      <p>4 Stars</p>
+    </div>
+    <div class="dish-details">
+      <p>Description: Increases all party members' ATK by 224~320 and CRIT Rate by 6~10% for 300s.</p>
+      <p>Availability: Yes</p>
+    </div>
+  </div>
+
+  <div class="menu-item" id="item4">
+    <div class="dish">
+      <h2>Butter Crab</h2>
+      <img src="Item_Butter_Crab.webp" alt="Butter Crab" class="imgmeow">
+      <p>4 Stars</p>
+    </div>
+    <div class="dish-details">
+      <p>Description: Increases all party members' DEF by 215~308 and healing effects by 6~10% for 300s.</p>
+      <p>Availability: Yes</p>
+    </div>
+  </div>
+<script>
+  $(document).ready(function(){
+    $(".dish").hover(function(){
+      $(this).next(".dish-details").slideToggle();
+    });
+  });
+</script>
+
+</body>
+</html>

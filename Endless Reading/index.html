@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>I love sciComp</title>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <style>
+body {
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+h1 {
+  font-size: 3.5vw;
+  color: #007bff;
+  margin-bottom: 20px;
+}
+
+.rollercoaster-container {
+  width: 90%; /* Adjust the width percentage as needed */
+  max-width: 1200px; /* Adjust the max-width as needed */
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.rollercoaster-content {
+  font-size: 2vw;
+  line-height: 1.6;
+  color: #333;
+}
+
+.rollercoaster-content p {
+  margin-bottom: 15px;
+}
+
+.rollercoaster-content p:last-child {
+  margin-bottom: 0;
+}
+
+
+
+  </style>
+</head>
+<body>
+<h1>Review on scientific computing class</h1>
+<div class="rollercoaster-container">
+  <div class="rollercoaster-content">
+    <!-- Your initial content goes here -->
+    <p>Oh, let me tell you the SHEER JOY of being stuck in Dr. Zhandos Yessenbayev's "scientific computing" class—it's a BLAST! Picture this: PDAs, NFAs, DFAs, and Turing machines, because apparently, nothing says "FUN" like swimming in a sea of acronyms that make your head spin.</p>
+    <p>Dr. Yessenbayev's LECTURES are like a THRILLING ADVENTURE where each state transition is a ROLLERCOASTER RIDE of excitement—except, instead of screaming with joy, we're screaming internally trying to grasp the concept. It's not just a class; it's a RIVETING EXPERIENCE where we ponder life's profound questions, like whether a computer will ever understand our attempts at creating a language.</p>
+    <p>And oh, the ANTICIPATION! Will our newfound knowledge of formal languages ever come in handy? I can already see employers lining up, BEGGING for someone who can expertly navigate the intricacies of DFAs in everyday life. Thank you, Dr. Yessenbayev, for making this ACADEMIC ROLLERCOASTER a SARCASTICALLY DELIGHTFUL experience. Can't wait for the next MIND-BOGGLING lecture!
+</p>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function() {
+      // Function to append content infinitely when scrolling
+      function appendContent() {
+        $(".rollercoaster-content").append($(".rollercoaster-content").html());
+      }
+  
+      // Attach the function to the scroll event
+      $(window).scroll(function() {
+        if ($(window).scrollTop() + $(window).height() >= $(document).height() - 100) {
+          // When near the bottom of the page, append more content
+          appendContent();
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

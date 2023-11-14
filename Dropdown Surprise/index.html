@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Flat Earth Survey</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            margin: 20px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        #flatEarthDropdown {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        #confirmButton {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #confirmButton:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body>
+
+<h2>Is the Earth flat?</h2>
+
+<select id="flatEarthDropdown">
+    <option value="yes">Yes</option>
+    <option value="absolutelyYes">Absolutely Yes</option>
+    <option value="certainlyYes">Certainly Yes</option>
+</select>
+
+<button id="confirmButton">Confirm Answer</button>
+
+<script>
+    $(document).ready(function () {
+        $("#confirmButton").on("click", function () {
+            const selectedValue = $("#flatEarthDropdown").val();
+            confirmAnswer(selectedValue);
+        });
+
+        function confirmAnswer(selectedValue) {
+            const confirmation = prompt("Are you sure about your answer? Type 'yes' to confirm.");
+
+            if (confirmation && confirmation.toLowerCase() === "yes") {
+                flatEarthSurprise(selectedValue);
+            } else {
+                alert("Confirmation failed. Please confirm your answer again.");
+            }
+        }
+
+        function flatEarthSurprise(selectedValue) {
+            // Clear previous surprises
+            $("#flatEarthDropdown option.surprise").remove();
+
+            // Add surprise choices if the answer is one of the positive options
+            if (selectedValue === "yes" || selectedValue === "absolutelyYes" || selectedValue === "certainlyYes") {
+                $("#flatEarthDropdown").append("<option class='surprise' value='no'>No</option>");
+
+                // Display a message
+                alert("Check the option again! I think you might need to go back to elementary school.");
+            }
+        }
+    });
+</script>
+
+</body>
+
+</html>
